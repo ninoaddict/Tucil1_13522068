@@ -36,7 +36,7 @@ export default function TopNav() {
         </h1> */}
         <div className="glitch-wrapper">
           <div
-            className={`${orbitron.className} text-xl md:text-2xl font-semibold text-onBackground md:glitch`}
+            className={`${orbitron.className} text-xl md:text-2xl md:font-semibold text-onBackground font-bold md:glitch`}
             data-text="STIMA"
           >
             STIMA
@@ -45,12 +45,12 @@ export default function TopNav() {
       </Link>
 
       <div
-        className={`absolute md:static flex top-20 left-0 w-full z-5 bg-transparent duration-700 ease-in-out md:translate-x-0 md:transition-none px-5 md:px-0 ${
+        className={`absolute md:static flex top-20 left-0 w-full z-5 bg-transparent duration-700 ease-in-out md:translate-x-0 md:transition-none px-6 md:px-0 ${
           expandNav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <ul
-          className={`flex flex-col gap-y-4 py-5 px-6 md:flex-row md:gap-x-14 bg-gray-700 md:bg-background md:px-0 w-full md:justify-end shadow-current shadow-md rounded-lg md:rounded-none md:shadow-none`}
+          className={`flex flex-col gap-y-4 py-5 px-6 md:flex-row md:gap-x-14 bg-gray-700 md:bg-background md:px-0 w-full md:justify-end shadow-current shadow-md rounded-xl md:rounded-none md:shadow-none`}
         >
           <NavLinks />
         </ul>
@@ -68,17 +68,17 @@ export default function TopNav() {
         onClick={() => setExpandNav(!expandNav)}
       >
         <span
-          className={`h-[5px] w-full origin-left rounded-full bg-white opacity-100 transition duration-300 ease-in-out ${
+          className={`h-[5px] w-full origin-left rounded-full bg-onBackground opacity-100 transition duration-300 ease-in-out ${
             expandNav ? "rotate-45 scale-x-105" : "rotate-0 scale-x-100"
           }`}
         />
         <span
-          className={`h-[5px] w-full rounded-full bg-white opacity-100 transition duration-300 ease-in-out ${
-            expandNav ? "bg-transparent" : "opacity-100"
+          className={`h-[5px] w-full rounded-full bg-onBackground transition duration-300 ease-in-out ${
+            expandNav ? "opacity-0" : "opacity-100"
           }`}
         />
         <span
-          className={`h-[5px] w-full origin-left rounded-full bg-white opacity-100 transition duration-300 ease-in-out ${
+          className={`h-[5px] w-full origin-left rounded-full bg-onBackground opacity-100 transition duration-300 ease-in-out ${
             expandNav ? "rotate-[-45deg] scale-x-105" : "rotate-0 scale-x-100"
           }`}
         />
