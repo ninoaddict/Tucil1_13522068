@@ -23,7 +23,7 @@ export default function NavLinks() {
             className={`list-none text-xl font-semibold ${orbitron.className}`}
           >
             <Link
-              href={link.href}
+              href={"/"}
               className={clsx(
                 "lg:duration-300 lg:ease-in-out text-onBackground hover:text-secondary active:text-secondary",
                 { "text-secondary": pathName === link.href }

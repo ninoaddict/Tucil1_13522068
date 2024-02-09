@@ -52,6 +52,10 @@ export function getColFromIndex(i: number, col: number) {
   return i % col;
 }
 
+export function random(lowerbound: number, upperbound: number) {
+  return Math.floor(Math.random() * (upperbound - lowerbound)) + lowerbound;
+}
+
 export function getPoint(
   token: string,
   sequences: string[],

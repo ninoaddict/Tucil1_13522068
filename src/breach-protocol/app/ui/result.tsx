@@ -3,7 +3,16 @@ import { ResultData } from "./game";
 import Matrix from "./matrix";
 
 export default function Result({ data }: { data: ResultData }) {
-  const { maxPoint, runTime, matrix, coordinates, styleArr } = data;
+  const {
+    maxPoint,
+    runTime,
+    matrix,
+    coordinates,
+    styleArr,
+    sequences,
+    vertical,
+    horizontal,
+  } = data;
   return (
     <section className="mt-12 md:mt-16 flex flex-col mb-9 md:mb-12 lg:mb-16">
       <div className="flex justify-center mb-4 md:mb-8">
@@ -20,7 +29,8 @@ export default function Result({ data }: { data: ResultData }) {
           <Matrix
             matrix={matrix}
             styleArr={styleArr}
-            coordinates={coordinates}
+            vertical={vertical}
+            horizontal={horizontal}
           />
         </div>
         <div className="md:w-1/2">
@@ -54,6 +64,31 @@ export default function Result({ data }: { data: ResultData }) {
               className={`${orbitron.className} text-onBackground font-semibold lg`}
             >
               {runTime.toFixed(2)} ms
+            </div>
+            <div
+              className={`${orbitron.className} text-secondary font-semibold lg`}
+            >
+              Sequences
+            </div>
+            <div
+              className={`${orbitron.className} text-onBackground font-semibold lg`}
+            >
+              :
+            </div>
+            <div
+              className={`${orbitron.className} text-onBackground font-semibold lg`}
+            >
+              <span>
+                {sequences.map((row, i) => {
+                  return (
+                    <div key={i}>
+                      {row.map((col, j) => {
+                        return <span key={j}>{sequences[i][j] + " "}</span>;
+                      })}
+                    </div>
+                  );
+                })}
+              </span>
             </div>
             <div
               className={`${orbitron.className} text-secondary font-semibold lg`}
