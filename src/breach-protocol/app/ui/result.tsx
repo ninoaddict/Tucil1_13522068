@@ -1,3 +1,4 @@
+import DownloadButton from "./download-button";
 import { orbitron } from "./font";
 import { ResultData } from "./game";
 import Matrix from "./matrix";
@@ -35,7 +36,7 @@ export default function Result({ data }: { data: ResultData }) {
           />
         </div>
         <div className="md:w-1/2">
-          <div className="grid grid-auto-auto gap-1.5 sm:gap-2 md:gap-3 max-w-80 md:max-w-none pt-2">
+          <div className="grid grid-auto-auto gap-1.5 sm:gap-2 md:gap-2.5 max-w-80 md:max-w-none pt-2">
             <div
               className={`${orbitron.className} text-secondary font-semibold lg`}
             >
@@ -149,6 +150,9 @@ export default function Result({ data }: { data: ResultData }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center md:justify-end lg:mt-7 md:mt-5 mt-3">
+        <DownloadButton data={data} />
       </div>
     </section>
   );

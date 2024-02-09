@@ -87,3 +87,32 @@ export function formatCoordinates(
 
   return res;
 }
+
+export function convertDataToString(
+  maxPoint: number,
+  coordinates: { x: number; y: number }[],
+  matrix: string[][],
+  runTime: number
+) {
+  let res: string = "";
+  res += maxPoint.toString();
+  res += "\n";
+  for (let i = 0; i < coordinates.length; i++) {
+    res += matrix[coordinates[i].x][coordinates[i].y];
+    if (i != coordinates.length - 1) {
+      res += " ";
+    }
+  }
+  res += "\n";
+
+  for (let i = 0; i < coordinates.length; i++) {
+    res += (coordinates[i].y + 1).toString();
+    res += ", ";
+    res += (coordinates[i].x + 1).toString();
+    res += "\n";
+  }
+  res += "\n";
+  res += runTime.toFixed(2).toString();
+  res += " ms";
+  return res;
+}
