@@ -15,7 +15,7 @@ export default function FileInput() {
   ) {
     // event.preventDefault();
     if (!event.target.files || event.target.files.length == 0) {
-      console.log("tidak ada");
+      // console.log("tidak ada");
       return;
     }
     const newFile = event.target.files[0];
@@ -26,7 +26,7 @@ export default function FileInput() {
     event.preventDefault();
 
     if (!file) {
-      console.log("No file found!");
+      // console.log("No file found!");
       return;
     }
 
@@ -36,7 +36,7 @@ export default function FileInput() {
       const formData = new FormData();
       formData.set("file", file);
       const res = await getResultFromFile(formData);
-      // console.log(res);
+      // (res);
       setResultData(res);
       // setFile(null);
     } catch (error) {

@@ -7,7 +7,7 @@ import { orbitron } from "./font";
 import NavLinks from "./nav-links";
 
 export default function TopNav() {
-  const [expandNav, setExpandNav] = useState(true);
+  const [expandNav, setExpandNav] = useState(false);
   const navBarRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
