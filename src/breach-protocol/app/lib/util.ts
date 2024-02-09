@@ -45,7 +45,7 @@ export function getIndex(i: number, j: number, col: number) {
 }
 
 export function getRowFromIndex(i: number, row: number) {
-  return i / row;
+  return Math.floor(i / row);
 }
 
 export function getColFromIndex(i: number, col: number) {
@@ -65,4 +65,21 @@ export function getPoint(
   }
 
   return points;
+}
+
+export function formatCoordinates(
+  row: number,
+  col: number,
+  coordinates: number[]
+) {
+  const res = [];
+
+  for (let i = 0; i < coordinates.length; i++) {
+    res.push({
+      x: getRowFromIndex(coordinates[i], row),
+      y: getColFromIndex(coordinates[i], col),
+    });
+  }
+
+  return res;
 }

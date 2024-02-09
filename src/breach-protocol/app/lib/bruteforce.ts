@@ -29,7 +29,9 @@ export default function runBruteForce(data: {
 
     // check current point
     let currPoint = getPoint(token, sequences, rewards);
-    if (currPoint > maxPoint) {
+    if (currPoint === maxPoint && maxCoordinate.length > coordinates.length) {
+      maxCoordinate = [...coordinates];
+    } else if (currPoint > maxPoint) {
       maxPoint = currPoint;
       maxCoordinate = [...coordinates];
     }
@@ -82,16 +84,3 @@ export default function runBruteForce(data: {
 
   return { maxPoint, maxCoordinate, runTime };
 }
-
-// function searchOptimalValue(
-//   row: number,
-//   col: number,
-//   coordinates: number[],
-//   direction: boolean,
-//   token: string,
-//   steps: number,
-//   bufferSize: number,
-//   matrix: string[][],
-//   sequences: string[],
-//   rewards: number[]
-// ) {}
