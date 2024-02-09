@@ -25,8 +25,8 @@ export default function NavLinks() {
             <Link
               href={link.href}
               className={clsx(
-                "lg:duration-300 lg:ease-in-out text-onBackground hover:text-primary active:text-primary",
-                { "text-primary": pathName === link.href }
+                "lg:duration-300 lg:ease-in-out text-onBackground hover:text-secondary active:text-secondary",
+                { "text-secondary": pathName === link.href }
               )}
             >
               {link.name}

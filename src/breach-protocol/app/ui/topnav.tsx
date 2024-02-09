@@ -29,18 +29,11 @@ export default function TopNav() {
       className="md:py-2 py-4 px-6 md:px-12 relative flex items-center w-full justify-between"
     >
       <Link href="/">
-        {/* <h1
-          className={`${rubikglitch.className} text-xl md:text-2xl font-semibold text-onBackground hover:text-primary`}
+        <div
+          className={`${orbitron.className} text-xl md:text-2xl md:font-semibold text-onBackground font-bold hover:text-primary`}
+          data-text="STIMA"
         >
           STIMA
-        </h1> */}
-        <div className="glitch-wrapper">
-          <div
-            className={`${orbitron.className} text-xl md:text-2xl md:font-semibold text-onBackground font-bold md:glitch`}
-            data-text="STIMA"
-          >
-            STIMA
-          </div>
         </div>
       </Link>
 
