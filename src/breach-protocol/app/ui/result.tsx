@@ -12,6 +12,7 @@ export default function Result({ data }: { data: ResultData }) {
     sequences,
     vertical,
     horizontal,
+    rewards,
   } = data;
   return (
     <section className="mt-12 md:mt-16 flex flex-col mb-9 md:mb-12 lg:mb-16">
@@ -87,6 +88,25 @@ export default function Result({ data }: { data: ResultData }) {
                       })}
                     </div>
                   );
+                })}
+              </span>
+            </div>
+            <div
+              className={`${orbitron.className} text-secondary font-semibold lg`}
+            >
+              Rewards
+            </div>
+            <div
+              className={`${orbitron.className} text-onBackground font-semibold lg`}
+            >
+              :
+            </div>
+            <div
+              className={`${orbitron.className} text-onBackground font-semibold lg`}
+            >
+              <span>
+                {sequences.map((row, i) => {
+                  return <div key={i}>{rewards[i]}</div>;
                 })}
               </span>
             </div>

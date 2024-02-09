@@ -1,9 +1,7 @@
 "use client";
 
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { orbitron } from "./font";
-import { getResultFromFile } from "../lib/actions";
-import Result from "./result";
 import FileInput from "./file-input";
 import ManualInput from "./manual-input";
 
@@ -16,6 +14,7 @@ export interface ResultData {
   sequences: string[][];
   vertical: boolean[][];
   horizontal: boolean[][];
+  rewards: number[];
 }
 
 export default function Game() {

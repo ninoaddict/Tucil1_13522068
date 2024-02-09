@@ -100,14 +100,13 @@ export async function getResultFromFile(formData: FormData) {
     sequences.push(temp);
   }
 
-  revalidatePath("/");
-
   return {
     maxPoint: result.maxPoint,
     runTime: result.runTime,
     matrix: data.matrix,
     coordinates: coordinates,
     styleArr: styleArr,
+    rewards: data.rewards,
     sequences,
     vertical,
     horizontal,
@@ -244,8 +243,6 @@ export async function getRandomResult(formData: FormData) {
     resultSequence.push([...temp]);
   }
 
-  revalidatePath("/");
-
   return {
     maxPoint: result.maxPoint,
     runTime: result.runTime,
@@ -253,6 +250,7 @@ export async function getRandomResult(formData: FormData) {
     coordinates: coordinates,
     styleArr: styleArr,
     sequences: resultSequence,
+    rewards: data.rewards,
     horizontal,
     vertical,
   };
