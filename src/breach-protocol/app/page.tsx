@@ -1,22 +1,26 @@
 import Image from "next/image";
+import Game from "./ui/game";
 import { orbitron } from "./ui/font";
 
 export default function Home() {
   return (
     <main className="min-h-screen mx-auto xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] px-4 pt-10">
       <section id="title" className="flex align-center flex-col">
-        <h1
-          className={`${orbitron.className} text-onBackground text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold md:mb-12 mb-9 text-center`}
-        >
-          BREACH PROTOCOL SOLVER
-        </h1>
+        <div className="glitch-wrapper" data-text="BREACH PROTOCOL SOLVER">
+          <h1
+            className={`${orbitron.className} text-onBackground text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold md:mb-12 mb-9 text-center md:glitch`}
+            data-text="BREACH PROTOCOL SOLVER"
+          >
+            BREACH PROTOCOL SOLVER
+          </h1>
+        </div>
         <h2
-          className={`${orbitron.className} text-onBackground text-lg md:text-[22px] font-medium mb-12 text-center`}
+          className={`${orbitron.className} text-secondary text-lg md:text-[22px] font-medium md:mb-12 mb-8 text-center`}
         >
           Cyberpunk 2077 Breach Protocol Solver With Brute Force Algorithm
         </h2>
       </section>
-
+      <Game />
       {/* <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;

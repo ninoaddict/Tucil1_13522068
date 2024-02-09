@@ -26,14 +26,12 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    letter-spacing: 3px;
  }
  
  .glitch {
     position: relative;
     font-weight: bold;
     color: #FFFFFF;
-    letter-spacing: 3px;
     z-index: 1;
  }
  
@@ -64,16 +62,16 @@
        transform: translate(0);
     }
     20% {
-       transform: translate(-1px, 1px);
+       transform: translate(-2px, 2px);
     }
     40% {
-       transform: translate(-1px, -1px);
+       transform: translate(-2px, -2px);
     }
     60% {
-       transform: translate(1px, 1px);
+       transform: translate(2px, 2px);
     }
     80% {
-       transform: translate(1px, -1px);
+       transform: translate(2px, -2px);
     }
     to {
        transform: translate(0);
