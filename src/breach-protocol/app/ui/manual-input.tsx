@@ -153,7 +153,7 @@ export default function ManualInput() {
 
         <label
           htmlFor="tokens"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-onBackground"
+          className="block mb-2 text-md md:text-lg font-medium text-onBackground"
         >
           Input Unique Tokens (separated by spaces)
         </label>
