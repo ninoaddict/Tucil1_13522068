@@ -1,3 +1,4 @@
+import { uuid } from "uuidv4";
 import DownloadButton from "./download-button";
 import { orbitron } from "./font";
 import { ResultData } from "./game";
@@ -25,7 +26,13 @@ export default function Result({ data }: { data: ResultData }) {
         </h1>
       </div>
       <div
-        className={`${orbitron.className} flex flex-col md:flex-row items-center gap-6 md:gap-12 md:items-start md:justify-center`}
+        className={`${
+          orbitron.className
+        } flex flex-col items-center gap-6 md:gap-12 ${
+          matrix[0].length <= 10
+            ? "lg:flex-row lg:items-start lg:justify-center"
+            : ""
+        }`}
       >
         <div className="md:w-1/2">
           <Matrix
@@ -142,16 +149,21 @@ export default function Result({ data }: { data: ResultData }) {
               className={`${orbitron.className} text-onBackground font-semibold lg`}
             >
               <span>
-                {coordinates.map(
-                  (coordinate) =>
-                    `(${coordinate.y + 1}, ${coordinate.x + 1})` + " "
-                )}
+                {coordinates.map((coordinate, i) => (
+                  <div key="i">
+                    {`(${coordinate.y + 1}, ${coordinate.x + 1})` + " "}
+                  </div>
+                ))}
               </span>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center md:justify-end lg:mt-7 md:mt-5 mt-3">
+      <div
+        className={`flex justify-center lg:mt-7 md:mt-5 mt-3 ${
+          matrix[0].length > 10 ? "" : "lg:justify-end"
+        }`}
+      >
         <DownloadButton data={data} />
       </div>
     </section>

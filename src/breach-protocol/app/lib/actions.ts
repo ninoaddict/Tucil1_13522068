@@ -181,8 +181,8 @@ export async function getRandomResult(formData: FormData) {
   const result = runBruteForce(data);
 
   const coordinates = formatCoordinates(row, col, result.maxCoordinate);
-  const styleArr = Array.from(Array(matrix.length), () =>
-    Array(matrix[0].length).fill(0)
+  const styleArr = Array.from(Array(data.matrix.length), () =>
+    Array(data.matrix[0].length).fill(0)
   );
 
   const vertical = Array.from(Array(data.matrix.length), () =>

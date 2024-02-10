@@ -48,8 +48,8 @@ export function getIndex(i: number, j: number, col: number) {
   return i * col + j;
 }
 
-export function getRowFromIndex(i: number, row: number) {
-  return Math.floor(i / row);
+export function getRowFromIndex(i: number, col: number) {
+  return Math.floor(i / col);
 }
 
 export function getColFromIndex(i: number, col: number) {
@@ -84,7 +84,7 @@ export function formatCoordinates(
 
   for (let i = 0; i < coordinates.length; i++) {
     res.push({
-      x: getRowFromIndex(coordinates[i], row),
+      x: getRowFromIndex(coordinates[i], col),
       y: getColFromIndex(coordinates[i], col),
     });
   }
