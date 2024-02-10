@@ -4,6 +4,7 @@ import { ResultData } from "./game";
 import { getResultFromFile } from "../lib/actions";
 import { orbitron } from "./font";
 import Result from "./result";
+import Swal from "sweetalert2";
 
 export default function FileInput() {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,16 @@ export default function FileInput() {
 
     if (!file) {
       // console.log("No file found!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No file found",
+        background: "rgb(55 65 81)",
+        color: "#f3f3f3",
+        timer: 1500,
+        confirmButtonText: "Close",
+        confirmButtonColor: "#03DAC6",
+      });
       return;
     }
 
@@ -37,10 +48,34 @@ export default function FileInput() {
       formData.set("file", file);
       const res = await getResultFromFile(formData);
       // (res);
-      setResultData(res);
+      if (res.errorMsg != "") {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Wrong file format",
+          background: "rgb(55 65 81)",
+          color: "#f3f3f3",
+          timer: 1500,
+          confirmButtonText: "Close",
+          confirmButtonColor: "#03DAC6",
+        });
+        return;
+      }
+      const { errorMsg, ...hasil } = res;
+      setResultData(hasil as ResultData);
       // setFile(null);
     } catch (error) {
       console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Unexpected error occured",
+        background: "rgb(55 65 81)",
+        color: "#f3f3f3",
+        timer: 1500,
+        confirmButtonText: "Close",
+        confirmButtonColor: "#03DAC6",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -89,7 +124,7 @@ export default function FileInput() {
               className="hidden"
               accept=".txt"
               onChange={handleOnFileChange}
-              required
+              // required
             />
           </label>
         </div>
