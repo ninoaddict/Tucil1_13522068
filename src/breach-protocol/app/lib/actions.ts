@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import runBruteForce from "./bruteforce";
 import { formatCoordinates, readRawData } from "./util";
 import { random } from "./util";
