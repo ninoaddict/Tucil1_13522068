@@ -52,19 +52,11 @@ export default function ManualInput() {
         className={`${orbitron.className} mx-auto`}
         onSubmit={handleDataSubmit}
       >
-        {/* <input
-          type="number"
-          id="coba"
-          name="coba"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          min={1}
-          required
-        /> */}
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
               htmlFor="row"
-              className="block mb-2 text-sm font-lg text-gray-900 dark:text-onBackground"
+              className="block mb-2 text-sm font-lg text-onBackground"
             >
               Row
             </label>
@@ -72,7 +64,7 @@ export default function ManualInput() {
               type="number"
               id="row"
               name="row"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
               min={1}
               required
             />
@@ -80,7 +72,7 @@ export default function ManualInput() {
           <div>
             <label
               htmlFor="column"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-onBackground"
+              className="block mb-2 text-sm font-medium text-onBackground"
             >
               Column
             </label>
@@ -89,14 +81,14 @@ export default function ManualInput() {
               id="column"
               name="column"
               min={1}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
             <label
               htmlFor="buffer"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-onBackground"
+              className="block mb-2 text-sm font-medium text-onBackground"
             >
               Buffer
             </label>
@@ -105,14 +97,14 @@ export default function ManualInput() {
               id="buffer"
               name="buffer"
               min={0}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
             <label
               htmlFor="sequenceNumber"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-onBackground"
+              className="block mb-2 text-sm font-medium text-onBackground"
             >
               Number of Sequence
             </label>
@@ -121,14 +113,14 @@ export default function ManualInput() {
               id="sequenceNumber"
               name="sequenceNumber"
               min={0}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
             <label
               htmlFor="maxSequenceLength"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-onBackground"
+              className="block mb-2 text-sm font-medium text-onBackground"
             >
               Maximum Sequence Length
             </label>
@@ -137,14 +129,14 @@ export default function ManualInput() {
               id="maxSequenceLength"
               name="maxSequenceLength"
               min={2}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
             <label
               htmlFor="tokenNumber"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-onBackground"
+              className="block mb-2 text-sm font-medium text-onBackground"
             >
               Number Of Unique Token
             </label>
@@ -153,7 +145,7 @@ export default function ManualInput() {
               id="tokenNumber"
               name="tokenNumber"
               min={1}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
@@ -169,7 +161,7 @@ export default function ManualInput() {
           type="text"
           id="tokens"
           name="tokens"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-onBackground focus:ring-blue-500 focus:border-blue-500"
           required
         ></input>
         <div className="flex justify-center md:justify-end">

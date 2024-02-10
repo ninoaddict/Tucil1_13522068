@@ -66,10 +66,16 @@ export function getPoint(
   rewards: number[]
 ) {
   let points = 0;
+  let isFound: boolean = false;
   for (let i = 0; i < sequences.length; i++) {
     if (token.includes(sequences[i])) {
       points += rewards[i];
+      isFound = true;
     }
+  }
+
+  if (!isFound) {
+    return null;
   }
 
   return points;
