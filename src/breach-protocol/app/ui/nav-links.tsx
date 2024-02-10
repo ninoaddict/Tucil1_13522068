@@ -8,7 +8,6 @@ import { orbitron } from "./font";
 const links = [
   { name: "Home", href: "/" },
   { name: "How To Use", href: "/how-to-use" },
-  { name: "About", href: "/about" },
 ];
 
 export default function NavLinks() {

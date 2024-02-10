@@ -13,6 +13,7 @@ export default function runBruteForce(data: {
   );
   let maxPoint = 0;
   let maxCoordinate: number[] = [];
+  let isSolutionFound: boolean = false;
 
   // function declaration
   function searchOptimalValue(
@@ -29,11 +30,20 @@ export default function runBruteForce(data: {
 
     // check current point
     let currPoint = getPoint(token, sequences, rewards);
-    if (currPoint === maxPoint && maxCoordinate.length > coordinates.length) {
-      maxCoordinate = [...coordinates];
-    } else if (currPoint > maxPoint) {
-      maxPoint = currPoint;
-      maxCoordinate = [...coordinates];
+    if (currPoint) {
+      if (!isSolutionFound) {
+        maxPoint = currPoint;
+        maxCoordinate = [...coordinates];
+        isSolutionFound = true;
+      } else if (
+        currPoint === maxPoint &&
+        maxCoordinate.length > coordinates.length
+      ) {
+        maxCoordinate = [...coordinates];
+      } else if (currPoint > maxPoint) {
+        maxPoint = currPoint;
+        maxCoordinate = [...coordinates];
+      }
     }
 
     // check if steps is equal to buffer size

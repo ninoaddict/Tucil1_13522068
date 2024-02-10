@@ -28,14 +28,14 @@ export default function Game() {
     <>
       <section id="form">
         <div
-          className={`text-md font-medium text-center text-onBackground border-b-[1.5px] dark:border-gray-700 ${orbitron.className} mb-6 md:mb-8`}
+          className={`text-md font-medium text-center text-onBackground border-b-[1.5px] border-gray-700 ${orbitron.className} mb-6 md:mb-8`}
         >
           <ul className="flex flex-wrap -mb-[1.5px]">
             <li className="me-2">
               <button
                 className={`inline-block p-4 border-b-[3px] rounded-t-lg  ${
                   isFileInput
-                    ? "active dark:border-secondary dark:text-secondary"
+                    ? "active border-secondary text-secondary"
                     : "hover:text-secondary hover:border-secondary border-transparent"
                 }`}
                 onClick={() => {
@@ -51,7 +51,7 @@ export default function Game() {
               <button
                 className={`inline-block p-4 border-b-[3px] rounded-t-lg  ${
                   !isFileInput
-                    ? "active dark:border-secondary dark:text-secondary"
+                    ? "active border-secondary text-secondary"
                     : "hover:text-secondary hover:border-secondary border-transparent"
                 }`}
                 onClick={() => {

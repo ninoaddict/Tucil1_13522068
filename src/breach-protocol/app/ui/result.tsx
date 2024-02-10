@@ -57,7 +57,7 @@ export default function Result({ data }: { data: ResultData }) {
             <div
               className={`${orbitron.className} text-onBackground font-semibold lg`}
             >
-              {maxPoint}
+              {coordinates.length > 0 ? maxPoint : "No Solution Exist"}
             </div>
             <div
               className={`${orbitron.className} text-secondary font-semibold lg`}
