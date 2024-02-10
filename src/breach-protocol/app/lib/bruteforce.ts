@@ -75,8 +75,10 @@ export default function runBruteForce(data: {
 
   const startTime = performance.now();
 
-  for (let i = 0; i < matrix[0].length; i++) {
-    searchOptimalValue(0, i, [], true, matrix[0][i], 1);
+  if (bufferSize > 0 && sequences.length > 0) {
+    for (let i = 0; i < matrix[0].length; i++) {
+      searchOptimalValue(0, i, [], true, matrix[0][i], 1);
+    }
   }
 
   const endTime = performance.now();

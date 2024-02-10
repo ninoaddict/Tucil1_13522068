@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ResultData } from "./game";
 import { getRandomResult } from "../lib/actions";
 import Result from "./result";
+// import { error } from "console";
+import Swal from "sweetalert2";
 
 export default function ManualInput() {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +20,23 @@ export default function ManualInput() {
       const res = await getRandomResult(formData);
       // console.log(res);
 
-      setResultData(res);
+      if (res.errorMsg != "") {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: res.errorMsg,
+          background: "rgb(55 65 81)",
+          color: "#f3f3f3",
+          timer: 1500,
+          confirmButtonText: "Close",
+          confirmButtonColor: "#03DAC6",
+        });
+        return;
+      }
+
+      const { errorMsg, ...hasil } = res;
+
+      setResultData(hasil as ResultData);
     } catch (error) {
       console.error(error);
     } finally {
@@ -86,7 +104,7 @@ export default function ManualInput() {
               type="number"
               id="buffer"
               name="buffer"
-              min={2}
+              min={0}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
@@ -102,7 +120,7 @@ export default function ManualInput() {
               type="number"
               id="sequenceNumber"
               name="sequenceNumber"
-              min={1}
+              min={0}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-onBackground dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />

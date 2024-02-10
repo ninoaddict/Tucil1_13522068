@@ -1,43 +1,47 @@
 export function readRawData(rawData: string) {
   // const arr = rawData.split(/\r|\n| /);
-  const arr = rawData.split("\r");
-  const filteredArr = arr.map((val) => val.replace(/\n/g, ""));
+  try {
+    const arr = rawData.split("\r");
+    const filteredArr = arr.map((val) => val.replace(/\n/g, ""));
 
-  const bufferSize: number = parseInt(filteredArr[0]);
-  const matrixSize = filteredArr[1].split(/\s+/);
-  const col = parseInt(matrixSize[0]);
-  const row = parseInt(matrixSize[1]);
+    const bufferSize: number = parseInt(filteredArr[0]);
+    const matrixSize = filteredArr[1].split(/\s+/);
+    const col = parseInt(matrixSize[0]);
+    const row = parseInt(matrixSize[1]);
 
-  const matrix = [];
-  const sequences = [];
-  const rewards = [];
-  let currIdx: number = 2;
+    const matrix = [];
+    const sequences = [];
+    const rewards = [];
+    let currIdx: number = 2;
 
-  for (let i = 0; i < row; i++) {
-    const currRow = filteredArr[currIdx].split(/\s+/);
-    matrix.push(currRow);
+    for (let i = 0; i < row; i++) {
+      const currRow = filteredArr[currIdx].split(/\s+/);
+      matrix.push(currRow);
+      currIdx++;
+    }
+
+    const numberOfSequence = parseInt(filteredArr[currIdx]);
     currIdx++;
+
+    for (let i = 0; i < numberOfSequence; i++) {
+      const currSequence = filteredArr[currIdx].replace(/\s/g, "");
+      sequences.push(currSequence);
+      currIdx++;
+
+      const reward = parseInt(filteredArr[currIdx]);
+      rewards.push(reward);
+      currIdx++;
+    }
+
+    return {
+      bufferSize,
+      matrix,
+      sequences,
+      rewards,
+    };
+  } catch (error) {
+    return null;
   }
-
-  const numberOfSequence = parseInt(filteredArr[currIdx]);
-  currIdx++;
-
-  for (let i = 0; i < numberOfSequence; i++) {
-    const currSequence = filteredArr[currIdx].replace(/\s/g, "");
-    sequences.push(currSequence);
-    currIdx++;
-
-    const reward = parseInt(filteredArr[currIdx]);
-    rewards.push(reward);
-    currIdx++;
-  }
-
-  return {
-    bufferSize,
-    matrix,
-    sequences,
-    rewards,
-  };
 }
 
 export function getIndex(i: number, j: number, col: number) {
@@ -103,7 +107,7 @@ export function convertDataToString(
       res += " ";
     }
   }
-  res += "\n";
+  if (coordinates.length > 0) res += "\n";
 
   for (let i = 0; i < coordinates.length; i++) {
     res += (coordinates[i].y + 1).toString();
@@ -111,7 +115,7 @@ export function convertDataToString(
     res += (coordinates[i].x + 1).toString();
     res += "\n";
   }
-  res += "\n";
+  if (coordinates.length > 0) res += "\n";
   res += runTime.toFixed(2).toString();
   res += " ms";
   return res;

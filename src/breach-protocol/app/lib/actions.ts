@@ -10,6 +10,10 @@ export async function getResultFromFile(formData: FormData) {
   const inputString: string = await file.text();
   const data = readRawData(inputString);
 
+  if (!data) {
+    return { errorMsg: "Wrong input format" };
+  }
+
   const result = runBruteForce(data);
 
   const coordinates = formatCoordinates(
@@ -17,19 +21,6 @@ export async function getResultFromFile(formData: FormData) {
     data.matrix[0].length,
     result.maxCoordinate
   );
-
-  /*
-  style
-  0: no style
-  1: chosen, no style
-  2: vertical
-  3: horizontal
-  4: both
-  5: top
-  6: bottom
-  7: left
-  8: right
-  */
 
   /* 
   style
@@ -110,6 +101,7 @@ export async function getResultFromFile(formData: FormData) {
     sequences,
     vertical,
     horizontal,
+    errorMsg: "",
   };
 }
 
@@ -124,6 +116,10 @@ export async function getRandomResult(formData: FormData) {
   const tokenNumber = formData.get("tokenNumber") as unknown as number;
   const rawTokens = formData.get("tokens") as unknown as string;
   const tokens: string[] = rawTokens.trim().split(/\s+/);
+
+  if (tokens.length != tokenNumber) {
+    return { errorMsg: "Token length is incorrect" };
+  }
 
   // generate random sequences and rewards
   const sequences: string[] = [];
@@ -253,5 +249,6 @@ export async function getRandomResult(formData: FormData) {
     rewards: data.rewards,
     horizontal,
     vertical,
+    errorMsg: "",
   };
 }
