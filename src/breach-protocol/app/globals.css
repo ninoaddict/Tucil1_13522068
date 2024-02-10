@@ -6,7 +6,7 @@
 
   .grid-auto-auto {
     display: grid;
-    grid-template-columns: minmax(auto, 1fr) min-content minmax(auto, 1fr);
+    grid-template-columns: auto min-content auto;
   }
   .glitch-wrapper {
     width: 100%;

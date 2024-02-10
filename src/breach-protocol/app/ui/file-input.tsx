@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ResultData } from "./game";
 import { getResultFromFile } from "../lib/actions";
 import { orbitron } from "./font";
@@ -11,9 +11,7 @@ export default function FileInput() {
   const [file, setFile] = useState<File | null>(null);
   const [resultData, setResultData] = useState<ResultData | null>(null);
 
-  async function handleOnFileChange(
-    event: React.ChangeEvent<HTMLInputElement>
-  ) {
+  function handleOnFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     // event.preventDefault();
     if (!event.target.files || event.target.files.length == 0) {
       // console.log("tidak ada");
@@ -47,7 +45,6 @@ export default function FileInput() {
       const formData = new FormData();
       formData.set("file", file);
       const res = await getResultFromFile(formData);
-      // (res);
       if (res.errorMsg != "") {
         Swal.fire({
           icon: "error",
@@ -63,7 +60,6 @@ export default function FileInput() {
       }
       const { errorMsg, ...hasil } = res;
       setResultData(hasil as ResultData);
-      // setFile(null);
     } catch (error) {
       console.error(error);
       Swal.fire({
@@ -107,12 +103,16 @@ export default function FileInput() {
                 />
               </svg>
               {!file ? (
-                <p className="mb-2 text-sm text-gray-400">
+                <p
+                  className={`mb-2 text-md text-gray-400 ${orbitron.className}`}
+                >
                   <span className="font-semibold">Click to upload</span> or drag
                   and drop txt file
                 </p>
               ) : (
-                <p className="mb-2 text-sm text-gray-400">
+                <p
+                  className={`mb-2 text-md text-gray-400 ${orbitron.className}`}
+                >
                   <span className="font-semibold">{file.name}</span>
                 </p>
               )}
@@ -124,7 +124,6 @@ export default function FileInput() {
               className="hidden"
               accept=".txt"
               onChange={handleOnFileChange}
-              // required
             />
           </label>
         </div>
