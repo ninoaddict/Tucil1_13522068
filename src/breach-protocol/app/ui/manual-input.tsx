@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ResultData } from "./game";
 import { getRandomResult } from "../lib/actions";
 import Result from "./result";
-// import { error } from "console";
 import Swal from "sweetalert2";
 
 export default function ManualInput() {
@@ -18,7 +17,6 @@ export default function ManualInput() {
     try {
       const formData = new FormData(event.currentTarget);
       const res = await getRandomResult(formData);
-      // console.log(res);
 
       if (res.errorMsg != "") {
         Swal.fire({
@@ -38,7 +36,16 @@ export default function ManualInput() {
 
       setResultData(hasil as ResultData);
     } catch (error) {
-      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Unexpected error occured",
+        background: "rgb(55 65 81)",
+        color: "#f3f3f3",
+        timer: 1500,
+        confirmButtonText: "Close",
+        confirmButtonColor: "#03DAC6",
+      });
     } finally {
       setIsLoading(false);
     }

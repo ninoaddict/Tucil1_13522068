@@ -14,7 +14,7 @@ export function readRawData(rawData: string) {
     let currIdx: number = 2;
 
     for (let i = 0; i < row; i++) {
-      const currRow = filteredArr[currIdx].split(/\s+/);
+      const currRow = filteredArr[currIdx].trim().split(/\s+/);
       matrix.push(currRow);
       currIdx++;
     }
@@ -23,8 +23,11 @@ export function readRawData(rawData: string) {
     currIdx++;
 
     for (let i = 0; i < numberOfSequence; i++) {
-      const currSequence = filteredArr[currIdx].replace(/\s/g, "");
-      sequences.push(currSequence);
+      // make sure that there are no more than one whitespace
+      const currSequence = filteredArr[currIdx].trim().split(/\s/g);
+      const str = currSequence.join(" ");
+      sequences.push(str);
+
       currIdx++;
 
       const reward = parseInt(filteredArr[currIdx]);
@@ -53,16 +56,10 @@ export function getPoint(
   rewards: number[]
 ) {
   let points = 0;
-  let isFound: boolean = false;
   for (let i = 0; i < sequences.length; i++) {
     if (token.includes(sequences[i])) {
       points += rewards[i];
-      isFound = true;
     }
-  }
-
-  if (!isFound) {
-    return null;
   }
 
   return points;

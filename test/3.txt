@@ -1,0 +1,7 @@
+8
+2 2
+CG CG
+HG HG
+1
+CG HG HG
+3

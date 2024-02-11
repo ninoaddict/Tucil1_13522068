@@ -15,12 +15,6 @@ export async function getResultFromFile(formData: FormData) {
 
   const result = runBruteForce(data);
 
-  // const coordinates = formatCoordinates(
-  //   data.matrix.length,
-  //   data.matrix[0].length,
-  //   result.maxCoordinate
-  // );
-
   const coordinates = result.maxCoordinate;
 
   /* 
@@ -85,10 +79,7 @@ export async function getResultFromFile(formData: FormData) {
   const sequences: string[][] = [];
 
   for (let i = 0; i < data.sequences.length; i++) {
-    let temp: string[] = [];
-    for (let j = 0; j < data.sequences[i].length; j += 2) {
-      temp.push(data.sequences[i].slice(j, j + 2));
-    }
+    let temp: string[] = data.sequences[i].split(/\s+/);
     sequences.push(temp);
   }
 
@@ -139,6 +130,9 @@ export async function getRandomResult(formData: FormData) {
         // generate random token index
         const rdIndex = random(0, tokenNumber - 1);
         temp += tokens[rdIndex];
+        if (j != rdLen - 1) {
+          temp += " ";
+        }
       }
 
       // if temp has been added before
@@ -169,7 +163,7 @@ export async function getRandomResult(formData: FormData) {
       let rnIndex: number = random(0, tokenNumber - 1);
       temp.push(tokens[rnIndex]);
     }
-    matrix.push([...temp]);
+    matrix.push(temp);
   }
 
   const data = {
@@ -233,11 +227,8 @@ export async function getRandomResult(formData: FormData) {
 
   const resultSequence: string[][] = [];
   for (let i = 0; i < sequences.length; i++) {
-    let temp: string[] = [];
-    for (let j = 0; j < sequences[i].length; j += 2) {
-      temp.push(sequences[i].slice(j, j + 2));
-    }
-    resultSequence.push([...temp]);
+    let temp: string[] = sequences[i].split(/\s+/);
+    resultSequence.push(temp);
   }
 
   return {

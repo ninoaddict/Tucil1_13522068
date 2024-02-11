@@ -30,20 +30,11 @@ export default function runBruteForce(data: {
 
     // check current point
     let currPoint = getPoint(token, sequences, rewards);
-    if (currPoint) {
-      if (!isSolutionFound) {
-        maxPoint = currPoint;
-        maxCoordinate = [...coordinates];
-        isSolutionFound = true;
-      } else if (
-        currPoint === maxPoint &&
-        maxCoordinate.length > coordinates.length
-      ) {
-        maxCoordinate = [...coordinates];
-      } else if (currPoint > maxPoint) {
-        maxPoint = currPoint;
-        maxCoordinate = [...coordinates];
-      }
+    if (currPoint === maxPoint && maxCoordinate.length > coordinates.length) {
+      maxCoordinate = [...coordinates];
+    } else if (currPoint > maxPoint) {
+      maxPoint = currPoint;
+      maxCoordinate = [...coordinates];
     }
 
     // check if steps is equal to buffer size
@@ -56,7 +47,7 @@ export default function runBruteForce(data: {
               col,
               coordinates,
               !direction,
-              token + matrix[i][col],
+              token + " " + matrix[i][col],
               steps + 1
             );
           }
@@ -69,7 +60,7 @@ export default function runBruteForce(data: {
               i,
               coordinates,
               !direction,
-              token + matrix[row][i],
+              token + " " + matrix[row][i],
               steps + 1
             );
           }

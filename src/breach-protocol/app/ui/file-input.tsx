@@ -12,9 +12,9 @@ export default function FileInput() {
   const [resultData, setResultData] = useState<ResultData | null>(null);
 
   function handleOnFileChange(event: React.ChangeEvent<HTMLInputElement>) {
-    // event.preventDefault();
+    event.preventDefault();
     if (!event.target.files || event.target.files.length == 0) {
-      // console.log("tidak ada");
+      setFile(null);
       return;
     }
     const newFile = event.target.files[0];
@@ -25,7 +25,6 @@ export default function FileInput() {
     event.preventDefault();
 
     if (!file) {
-      // console.log("No file found!");
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -61,7 +60,6 @@ export default function FileInput() {
       const { errorMsg, ...hasil } = res;
       setResultData(hasil as ResultData);
     } catch (error) {
-      console.error(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
