@@ -1,5 +1,4 @@
 export function readRawData(rawData: string) {
-  // const arr = rawData.split(/\r|\n| /);
   try {
     const arr = rawData.split("\r");
     const filteredArr = arr.map((val) => val.replace(/\n/g, ""));
@@ -44,18 +43,6 @@ export function readRawData(rawData: string) {
   }
 }
 
-export function getIndex(i: number, j: number, col: number) {
-  return i * col + j;
-}
-
-export function getRowFromIndex(i: number, col: number) {
-  return Math.floor(i / col);
-}
-
-export function getColFromIndex(i: number, col: number) {
-  return i % col;
-}
-
 export function random(lowerbound: number, upperbound: number) {
   return Math.floor(Math.random() * (upperbound - lowerbound)) + lowerbound;
 }
@@ -79,23 +66,6 @@ export function getPoint(
   }
 
   return points;
-}
-
-export function formatCoordinates(
-  row: number,
-  col: number,
-  coordinates: number[]
-) {
-  const res = [];
-
-  for (let i = 0; i < coordinates.length; i++) {
-    res.push({
-      x: getRowFromIndex(coordinates[i], col),
-      y: getColFromIndex(coordinates[i], col),
-    });
-  }
-
-  return res;
 }
 
 export function convertDataToString(

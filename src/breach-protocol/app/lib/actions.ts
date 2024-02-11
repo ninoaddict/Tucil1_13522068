@@ -1,7 +1,7 @@
 "use server";
 
 import runBruteForce from "./bruteforce";
-import { formatCoordinates, readRawData } from "./util";
+import { readRawData } from "./util";
 import { random } from "./util";
 
 export async function getResultFromFile(formData: FormData) {
@@ -15,11 +15,13 @@ export async function getResultFromFile(formData: FormData) {
 
   const result = runBruteForce(data);
 
-  const coordinates = formatCoordinates(
-    data.matrix.length,
-    data.matrix[0].length,
-    result.maxCoordinate
-  );
+  // const coordinates = formatCoordinates(
+  //   data.matrix.length,
+  //   data.matrix[0].length,
+  //   result.maxCoordinate
+  // );
+
+  const coordinates = result.maxCoordinate;
 
   /* 
   style
@@ -179,7 +181,7 @@ export async function getRandomResult(formData: FormData) {
 
   const result = runBruteForce(data);
 
-  const coordinates = formatCoordinates(row, col, result.maxCoordinate);
+  const coordinates = result.maxCoordinate;
   const styleArr = Array.from(Array(data.matrix.length), () =>
     Array(data.matrix[0].length).fill(0)
   );

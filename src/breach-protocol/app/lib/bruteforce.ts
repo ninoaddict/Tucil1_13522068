@@ -1,4 +1,4 @@
-import { getIndex, getPoint } from "./util";
+import { getPoint } from "./util";
 
 export default function runBruteForce(data: {
   bufferSize: number;
@@ -12,20 +12,20 @@ export default function runBruteForce(data: {
     Array(matrix[0].length).fill(false)
   );
   let maxPoint = 0;
-  let maxCoordinate: number[] = [];
+  let maxCoordinate: { x: number; y: number }[] = [];
   let isSolutionFound: boolean = false;
 
   // function declaration
   function searchOptimalValue(
     row: number,
     col: number,
-    coordinates: number[],
+    coordinates: { x: number; y: number }[],
     direction: boolean,
     token: string,
     steps: number
   ) {
     // init
-    coordinates.push(getIndex(row, col, matrix[0].length));
+    coordinates.push({ x: row, y: col });
     vis[row][col] = true;
 
     // check current point
