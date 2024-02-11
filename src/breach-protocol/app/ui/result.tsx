@@ -118,52 +118,57 @@ export default function Result({ data }: { data: ResultData }) {
                 })}
               </span>
             </div>
-            <div
-              className={`${orbitron.className} text-secondary font-semibold text-md sm:text-lg`}
-            >
-              Optimal Sequence
-            </div>
-            <div
-              className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
-            >
-              :
-            </div>
-            <div
-              className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
-            >
-              {coordinates.map(
-                (coordinate) => `${matrix[coordinate.x][coordinate.y]}` + " "
-              )}
-            </div>
-            <div
-              className={`${orbitron.className} text-secondary font-semibold text-md sm:text-lg`}
-            >
-              Optimal Coordinate
-            </div>
-            <div
-              className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
-            >
-              :
-            </div>
-            <div
-              className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
-            >
-              <span>
-                {coordinates.map((coordinate, i) => (
-                  <div key={i}>
-                    <span>{"("}</span>
-                    <span className="inline-flex justify-center w-4">
-                      {coordinate.y + 1}
-                    </span>
-                    <span>{", "}</span>
-                    <span className="inline-flex justify-center w-4">
-                      {coordinate.x + 1}
-                    </span>
-                    <span>{")"}</span>
-                  </div>
-                ))}
-              </span>
-            </div>
+            {coordinates.length > 0 && (
+              <>
+                <div
+                  className={`${orbitron.className} text-secondary font-semibold text-md sm:text-lg`}
+                >
+                  Optimal Sequence
+                </div>
+                <div
+                  className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
+                >
+                  :
+                </div>
+                <div
+                  className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
+                >
+                  {coordinates.map(
+                    (coordinate) =>
+                      `${matrix[coordinate.x][coordinate.y]}` + " "
+                  )}
+                </div>
+                <div
+                  className={`${orbitron.className} text-secondary font-semibold text-md sm:text-lg`}
+                >
+                  Optimal Coordinate
+                </div>
+                <div
+                  className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
+                >
+                  :
+                </div>
+                <div
+                  className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
+                >
+                  <span>
+                    {coordinates.map((coordinate, i) => (
+                      <div key={i}>
+                        <span>{"("}</span>
+                        <span className="inline-flex justify-center w-4">
+                          {coordinate.y + 1}
+                        </span>
+                        <span>{", "}</span>
+                        <span className="inline-flex justify-center w-4">
+                          {coordinate.x + 1}
+                        </span>
+                        <span>{")"}</span>
+                      </div>
+                    ))}
+                  </span>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
