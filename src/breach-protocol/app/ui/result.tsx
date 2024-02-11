@@ -94,12 +94,15 @@ export default function Result({ data }: { data: ResultData }) {
                       {row.map((col, j) => {
                         return <span key={j}>{sequences[i][j] + " "}</span>;
                       })}
+                      {` (${rewards[i]} ${
+                        rewards[i] == 1 ? "point" : "points"
+                      })`}
                     </div>
                   );
                 })}
               </span>
             </div>
-            <div
+            {/* <div
               className={`${orbitron.className} text-secondary font-semibold text-md sm:text-lg`}
             >
               Rewards
@@ -117,7 +120,7 @@ export default function Result({ data }: { data: ResultData }) {
                   return <div key={i}>{rewards[i]}</div>;
                 })}
               </span>
-            </div>
+            </div> */}
             {coordinates.length > 0 && (
               <>
                 <div

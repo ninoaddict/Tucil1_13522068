@@ -5,7 +5,6 @@ import { v4 } from "uuid";
 export default function DownloadButton({ data }: { data: ResultData }) {
   async function handleClick() {
     const url = v4();
-    // console.log(url);
     const fileName = url + ".txt";
     const response = await fetch("api/download", {
       method: "POST",
@@ -13,13 +12,9 @@ export default function DownloadButton({ data }: { data: ResultData }) {
       body: JSON.stringify(data),
     });
 
-    console.log("halo");
-
     const blob = await response.blob();
     const link = document.createElement("a");
     link.href = window.URL.createObjectURL(blob);
-
-    console.log("halo2");
 
     link.download = fileName;
 

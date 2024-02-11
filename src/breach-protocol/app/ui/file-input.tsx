@@ -12,9 +12,8 @@ export default function FileInput() {
   const [resultData, setResultData] = useState<ResultData | null>(null);
 
   function handleOnFileChange(event: React.ChangeEvent<HTMLInputElement>) {
-    // event.preventDefault();
+    event.preventDefault();
     if (!event.target.files || event.target.files.length == 0) {
-      // console.log("tidak ada");
       return;
     }
     const newFile = event.target.files[0];
@@ -25,7 +24,6 @@ export default function FileInput() {
     event.preventDefault();
 
     if (!file) {
-      // console.log("No file found!");
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -45,23 +43,23 @@ export default function FileInput() {
       const formData = new FormData();
       formData.set("file", file);
       const res = await getResultFromFile(formData);
-      if (res.errorMsg != "") {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Wrong file format",
-          background: "rgb(55 65 81)",
-          color: "#f3f3f3",
-          timer: 1500,
-          confirmButtonText: "Close",
-          confirmButtonColor: "#03DAC6",
-        });
-        return;
-      }
+      if (res)
+        if (res.errorMsg != "") {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Wrong file format",
+            background: "rgb(55 65 81)",
+            color: "#f3f3f3",
+            timer: 1500,
+            confirmButtonText: "Close",
+            confirmButtonColor: "#03DAC6",
+          });
+          return;
+        }
       const { errorMsg, ...hasil } = res;
       setResultData(hasil as ResultData);
     } catch (error) {
-      console.error(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
