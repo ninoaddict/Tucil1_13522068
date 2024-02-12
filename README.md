@@ -9,9 +9,9 @@ The components in this game include:
 - Sequence – a series of tokens (two or more) that need to be matched.
 - Buffer – the maximum number of tokens that can be arranged sequentially.
 
-This program aims to solve breach protocol game using brute force algorithm that involves trying all possible buffer combination until the optimal one is found. 
-This program will output the arrangement of tokens, the largest possible reward points, and the coordinates of tokens to achieve the maximum points. 
-The user can also view the runtime and download the results.
+This program aims to solve breach protocol game using brute force algorithm that involves attempting all possible buffer combinations until the optimal one is found. 
+The output of this program included the arrangement of tokens, the maximum achievable reward points, and the coordinates of tokens required to achieve the highest score. 
+Additionaly, users can view the runtime and download the results.
 
 <h2 id="table-of-contents">🔍 Table of Contents</h2>
 - <a href="#description">Description</a><br/>
@@ -19,7 +19,8 @@ The user can also view the runtime and download the results.
 - <a href="#tech-stack">Tech Stack</a><br/>
 - <a href="#how-to-run">How To Run</a><br/>
 - <a href="#usage">Usage</a><br/>
-- <a href="#author">Author</a>
+- <a href="#author">Author</a><br/>
+- <a href="#note">Additional Note</a>
 
 <h2 id="tech-stack">💻 Tech Stack</h2>
 
@@ -52,12 +53,26 @@ This project can also be accessed in this [link](https://breach-protocol-solver.
 1. Select your input mode
   ![File Input](https://github.com/ninoaddict/Tucil1_13522068/blob/main/public/file_input.png)
   ![Random Input](https://github.com/ninoaddict/Tucil1_13522068/blob/main/public/random_input.png)
-2. Upload your file or enter the inputs in the provided entries
+2. Upload your .txt file or enter the inputs in the provided entries
   ![Upload File](https://github.com/ninoaddict/Tucil1_13522068/blob/main/public/file_input_filled.png)
   ![Fill Random Input Field](https://github.com/ninoaddict/Tucil1_13522068/blob/main/public/random_input_filled.png)
-3. Click solve to see the result
+3. If you select the file input mode, please make sure that your .txt file is in the following format
+ ```
+buffer_size
+matrix_width matrix_height
+matrix
+number_of_sequences
+sequences_1
+sequences_1_reward
+sequences_2
+sequences_2_reward
+…
+sequences_n
+sequences_n_reward
+```  
+4. Click solve to see the result
   ![Click](https://github.com/ninoaddict/Tucil1_13522068/blob/main/public/random_input_filled.png)
-4. You can download the result by clicking the download button
+5. You can download the result by clicking the download button
   ![Result](https://github.com/ninoaddict/Tucil1_13522068/blob/main/public/result.png)
 
 <h2 id="author">🤵 Author</h2>
@@ -66,3 +81,11 @@ This project can also be accessed in this [link](https://breach-protocol-solver.
   NIM   : 13522068
   Email : <a href="mailto:13552068@std.stei.itb.ac.id">13552068@std.stei.itb.ac.id</a>
 </pre>
+
+<h2 id="note">📓 Additional Note</h2>
+
+The main program files, including the brute force algorithm and backend processes, are located within the specified path.
+
+```
+./src/breach_protocol/app/lib
+```
