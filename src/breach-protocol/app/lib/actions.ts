@@ -150,7 +150,7 @@ export async function getRandomResult(formData: FormData) {
 
     if (cnt === 1000) {
       // handle impossible permutation
-      break;
+      return { errorMsg: "Fail to randomize sequences" };
     }
   }
 

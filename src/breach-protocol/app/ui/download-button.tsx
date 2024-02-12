@@ -4,7 +4,8 @@ import { v4 } from "uuid";
 
 export default function DownloadButton({ data }: { data: ResultData }) {
   async function handleClick() {
-    const url = v4();
+    const uniqueID = v4();
+    const url = "result_" + uniqueID.slice(0, 8);
     const fileName = url + ".txt";
     const response = await fetch("api/download", {
       method: "POST",

@@ -95,32 +95,13 @@ export default function Result({ data }: { data: ResultData }) {
                         return <span key={j}>{sequences[i][j] + " "}</span>;
                       })}
                       {` (${rewards[i]} ${
-                        rewards[i] == 1 ? "point" : "points"
+                        rewards[i] === 1 ? "point" : "points"
                       })`}
                     </div>
                   );
                 })}
               </span>
             </div>
-            {/* <div
-              className={`${orbitron.className} text-secondary font-semibold text-md sm:text-lg`}
-            >
-              Rewards
-            </div>
-            <div
-              className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
-            >
-              :
-            </div>
-            <div
-              className={`${orbitron.className} text-onBackground font-semibold text-md sm:text-lg`}
-            >
-              <span>
-                {sequences.map((row, i) => {
-                  return <div key={i}>{rewards[i]}</div>;
-                })}
-              </span>
-            </div> */}
             {coordinates.length > 0 && (
               <>
                 <div
