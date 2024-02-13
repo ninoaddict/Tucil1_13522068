@@ -5,7 +5,7 @@ Cyberpunk 2077 Breach Protocol is a hacking minigame in the video game <a href="
 The components in this game include:
 
 - Token – consisting of two alphanumeric characters such as E9, BD, and 55.
-- Matrix – comprising tokens that will be selected to form a sequence of codes.
+- Matrix – comprising tokens that will be selected to form a sequence of tokens.
 - Sequence – a series of tokens (two or more) that need to be matched.
 - Buffer – the maximum number of tokens that can be arranged sequentially.
 
@@ -79,7 +79,7 @@ sequences_n_reward
 <pre>
   Name  : Adril Putra Merin
   NIM   : 13522068
-  Email : <a href="mailto:13552068@std.stei.itb.ac.id">13552068@std.stei.itb.ac.id</a>
+  Email : <a href="mailto:13522068@std.stei.itb.ac.id">13522068@std.stei.itb.ac.id</a>
 </pre>
 
 <h2 id="note">📓 Additional Note</h2>
